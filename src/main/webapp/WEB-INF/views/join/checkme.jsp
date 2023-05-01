@@ -29,7 +29,7 @@
                     <div class="row">
                         <label class="col-3 col-form-label text-warning text-end" for="name1">이름</label>
                         <div class="col-6">
-                            <input class="form-control border-warning" id="name1" name="name1" type="text">
+                            <input class="form-control border-warning" id="name1" name="name" type="text">
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -107,7 +107,7 @@
                     <div class="row">
                         <label class="col-3 col-form-label text-warning text-end" for="name2">이름</label>
                         <div class="col-6">
-                            <input class="form-control border-warning" id="name2" name="name2" type="text">
+                            <input class="form-control border-warning" id="name2" name="name" type="text">
                         </div>
                     </div>
                     <div class="row mt-3">

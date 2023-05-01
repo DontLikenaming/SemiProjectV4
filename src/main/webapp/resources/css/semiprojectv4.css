@@ -1,3 +1,4 @@
 #main { min-height: 500px; }
-#logo { width : 235px; }
+#logo { width : 255px; }
 #logo:hover { cursor: pointer; }
+.breadcrumb-item::before { margin-top: 5px; }

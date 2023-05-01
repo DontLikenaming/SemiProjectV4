@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="main">
     <div class="mt-4">
         <i class="fa-solid fa-users fa-2xl"></i> 회원가입
@@ -27,7 +28,8 @@
                 <div class="row col-11 offset-1 align-items-center">
                     <label class="col-2 form-label text-danger text-end mt-1" for="name">이름</label>
                     <div class="col-3">
-                        <input type="text" class="form-control border-danger bg-light" id="name" name="name" readonly>
+                        <input type="text" class="form-control border-danger bg-light"
+                               id="name" name="name" value="${mb.name}" readonly>
                     </div>
                 </div>
                 <div class="row col-11 offset-1 mt-3 align-items-center">
@@ -109,19 +111,15 @@
                     <label class="col-2 form-label text-danger text-end"
                            for="tel1">전화번호</label>
                     <div class="col-2">
-                        <select class="form-select border-danger"
-                                name="tel1" id="tel1">
-                            <option>국번</option>
-                            <option>010</option>
-                            <option>011</option>
-                        </select>
+                        <input type="text" name="tel2" id="tel1"
+                               class="form-control border-danger" value="${mb.pnum1}" readonly>
                     </div>
                     <div class="col-2">
                         <input type="text" name="tel2" id="tel2"
-                               class="form-control border-danger"> </div>
+                               class="form-control border-danger" value="${mb.pnum2}" readonly> </div>
                     <div class="col-2">
                         <input type="text" name="tel3" id="tel3"
-                               class="form-control border-danger"> </div>
+                               class="form-control border-danger" value="${mb.pnum3}" readonly> </div>
                 </div>
 
                 <div class="row col-11 offset-1  align-items-center">
