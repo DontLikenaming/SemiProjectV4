@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header class="row">
     <div class="col">
-        <h1><strong>Lorem Ipsum</strong></h1>
+        <h1 id="logo"><strong>Lorem Ipsum</strong></h1>
     </div>
     <div class="col text-end mt-2">
         <button type="button" class="btn btn-danger"
