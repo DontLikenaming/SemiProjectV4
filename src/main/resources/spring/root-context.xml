@@ -12,10 +12,9 @@
 
     <bean id="dbcpDataSource"
           class="org.apache.commons.dbcp2.BasicDataSource"
-          p:driverClassName="{DRV}"
-          p:url="{URL}"
-          p:username="{USR}"
-          p:password="{PWD}" />
+          p:driverClassName="${DRV}"
+          p:url="${URL}"
+          p:username="${USR}" p:password="${PWD}" />
 
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean"
