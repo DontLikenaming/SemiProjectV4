@@ -58,6 +58,75 @@ cancelbtn2?.addEventListener("click", () => {
 // ------------------------------------------------------------------- joinme
 const joinfrm = document.forms.joinfrm;
 const joinbtn = document.querySelector("#joinbtn");
+const dong = document.querySelector("#dong");
+const addrlist = document.querySelector("#addrlist");
+const zipbtn = document.querySelector("#findzipbtn");
+const addrclose = document.querySelector("#addrclose");
+
+
+const showzipaddr = (jsons) => {
+
+/*    for(idx in jsons){
+        console.log(jsons[idx]);
+    }
+
+    for(i of Object.values(jsons)) {
+        console.log(i);
+    }
+*/
+
+    jsons = JSON.parse(jsons);
+    let addrs = '';
+    jsons.forEach(function (data, idx){
+        let ri = data['ri'];
+        let bunji = data['bunji'];
+
+        if(ri==null) ri = ' ';
+        if(bunji==null) bunji = ' ';
+
+        addrs += `<option>${data['zipcode']} ${data['sido']} ${data['gugun']}
+                 ${data['dong']}</option>`;
+
+
+    })
+
+    while (addrlist.lastChild){
+        addrlist.removeChild(addrlist.lastChild);
+    }
+
+    addrlist.innerHTML = addrs;
+
+};
+zipbtn?.addEventListener("click", () =>{
+    const url = '/join/zipcode?dong=' + dong.value;
+    fetch(url).then(response => response.text())
+        .then(text => showzipaddr(text));
+})
+
+addrclose?.addEventListener("click", () =>{
+    let addr = addrlist.value;
+
+    if(addr !== ''){
+        let zipsplt = addr.split(' ')[0];
+        let zipsplt2 = `${addr.split(' ')[1]} ${addr.split(' ')[2]} ${addr.split(' ')[3]}`;
+
+        joinfrm.zip1.value = zipsplt.split('-')[0];
+        joinfrm.zip2.value = zipsplt.split('-')[1];
+        joinfrm.addr1.value = zipsplt2;
+    } else {
+        alert('주소를 입력하세요!');
+    }
+})
+
+let changeEmail = () => {
+    if(joinfrm.email3.value=="직접 입력하기"){
+        joinfrm.email2.value = '';
+        joinfrm.email2.removeAttribute("readonly");
+    } else {
+        joinfrm.email2.readOnly = true;
+        if(joinfrm.email3.value!=="선택하세요")joinfrm.email2.value=joinfrm.email3.value;
+    }
+}
 
 joinbtn?.addEventListener("click", () =>{
 if(joinfrm.userid.value == '') alert('아이디를 입력해주세요!');
