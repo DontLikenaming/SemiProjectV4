@@ -57,6 +57,10 @@ cancelbtn2?.addEventListener("click", () => {
 
 // ------------------------------------------------------------------- joinme
 const joinfrm = document.forms.joinfrm;
+const userid = document.querySelector("#userid");
+const passwd = document.querySelector("#passwd");
+const uidmsg = document.querySelector("#uidmsg");
+const pwdmsg = document.querySelector("#pwdmsg");
 const zipmdbtn = document.querySelector("#zipmdbtn");
 const zipmodal = document.querySelector("#zipmodal");
 const dong = document.querySelector("#dong");
@@ -67,6 +71,17 @@ const email3 = document.querySelector("#email3");
 const joinbtn = document.querySelector("#joinbtn");
 const modal = new bootstrap.Modal(zipmodal, {});
 
+userid?.addEventListener("blur",()=>{
+    let checkid = "/[0-9a-z]/"
+
+    if(userid.value==='') {
+        alert("유저 아이디를 입력하세요!");
+        return;
+    }
+    const url = '/join/checkuid?uid=' + userid.value;
+    fetch(url).then(response => response.text())
+        .then(text => alert(text));
+})
 
 zipmdbtn?.addEventListener("click",()=>{
     dong.value = '';
@@ -74,6 +89,13 @@ zipmdbtn?.addEventListener("click",()=>{
         addrlist.removeChild(addrlist.lastChild);
     }
     modal.show();
+})
+
+dong?.addEventListener("keydown", (e)=>{
+    if(e.keyCode === 13) {
+        e.preventDefault();
+        zipbtn.click();
+    }
 })
 
 const showzipaddr = (jsons) => {
@@ -90,11 +112,8 @@ const showzipaddr = (jsons) => {
     jsons = JSON.parse(jsons);
     let addrs = '';
     jsons.forEach(function (data, idx){
-        let ri = data['ri'];
-        let bunji = data['bunji'];
-
-        if(ri==null) ri = ' ';
-        if(bunji==null) bunji = ' ';
+        let ri = (data['ri']!==null) ? data['ri'] : '';
+        let bunji = (data['bunji']!==null) ? data['bunji'] : '';
 
         addrs += `<option>${data['zipcode']} ${data['sido']} ${data['gugun']}
                  ${data['dong']} ${ri} ${bunji}</option>`;
@@ -134,10 +153,10 @@ addrclose?.addEventListener("click", () =>{
         alert('주소를 입력하세요!');
     }
 
-    bootstrap.Modal.getInstance(zipmodal).hide();
+    modal.hide();
 });
 
-email3.addEventListener("click",() => {
+email3?.addEventListener("click",() => {
     if(joinfrm.email3.value=="직접 입력하기"){
         joinfrm.email2.value = '';
         joinfrm.email2.readOnly = false;
@@ -157,9 +176,11 @@ else if(joinfrm.passwd.value !== reppsswd.value) alert('비밀번호가 일치�
 else if(joinfrm.zip1.value == '' || zip2.value == '') alert('우편번호를 확인해주세요!');
 else if(joinfrm.addr1.value == '' || addr2.value == '') alert('주소를 확인해주세요!');
 else if(joinfrm.email1.value == '' || email2.value == '') alert('이메일을 확인해주세요!');
-else if(joinfrm.g-recaptcha.value == '') alert('자동가입방지를 확인해주세요!');
+else if(grecaptcha.getResponse() == '') alert('자동가입방지를 확인해주세요!');
 else {
-    location.href="/join/joinok";
+    joinfrm.method='post';
+    joinfrm.action='/join/joinok';
+    joinfrm.submit();
 }
 })
 // ------------------------------------------------------------------- joinok
