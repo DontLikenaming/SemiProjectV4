@@ -7,4 +7,9 @@
     resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Zipcode">
         select * from zipcode2013 where dong like #{dong} order by zipcode asc
     </select>
+    <select id="selectOneUid" statementType="PREPARED"
+            parameterType="String"
+            resultType="Integer">
+        select count(userid) cnt from member where userid = #{uid}
+    </select>
 </mapper>
