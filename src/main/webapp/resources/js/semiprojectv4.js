@@ -57,12 +57,24 @@ cancelbtn2?.addEventListener("click", () => {
 
 // ------------------------------------------------------------------- joinme
 const joinfrm = document.forms.joinfrm;
-const joinbtn = document.querySelector("#joinbtn");
+const zipmdbtn = document.querySelector("#zipmdbtn");
+const zipmodal = document.querySelector("#zipmodal");
 const dong = document.querySelector("#dong");
-const addrlist = document.querySelector("#addrlist");
 const zipbtn = document.querySelector("#findzipbtn");
+const addrlist = document.querySelector("#addrlist");
 const addrclose = document.querySelector("#addrclose");
+const email3 = document.querySelector("#email3");
+const joinbtn = document.querySelector("#joinbtn");
+const modal = new bootstrap.Modal(zipmodal, {});
 
+
+zipmdbtn?.addEventListener("click",()=>{
+    dong.value = '';
+    while (addrlist.lastChild){
+        addrlist.removeChild(addrlist.lastChild);
+    }
+    modal.show();
+})
 
 const showzipaddr = (jsons) => {
 
@@ -85,7 +97,7 @@ const showzipaddr = (jsons) => {
         if(bunji==null) bunji = ' ';
 
         addrs += `<option>${data['zipcode']} ${data['sido']} ${data['gugun']}
-                 ${data['dong']}</option>`;
+                 ${data['dong']} ${ri} ${bunji}</option>`;
 
 
     })
@@ -98,6 +110,11 @@ const showzipaddr = (jsons) => {
 
 };
 zipbtn?.addEventListener("click", () =>{
+    if(dong.value==='') {
+        alert("검색할 동 이름을 입력하세요!");
+        return;
+    }
+
     const url = '/join/zipcode?dong=' + dong.value;
     fetch(url).then(response => response.text())
         .then(text => showzipaddr(text));
@@ -116,17 +133,21 @@ addrclose?.addEventListener("click", () =>{
     } else {
         alert('주소를 입력하세요!');
     }
-})
 
-let changeEmail = () => {
+    bootstrap.Modal.getInstance(zipmodal).hide();
+});
+
+email3.addEventListener("click",() => {
     if(joinfrm.email3.value=="직접 입력하기"){
         joinfrm.email2.value = '';
-        joinfrm.email2.removeAttribute("readonly");
+        joinfrm.email2.readOnly = false;
     } else {
         joinfrm.email2.readOnly = true;
-        if(joinfrm.email3.value!=="선택하세요")joinfrm.email2.value=joinfrm.email3.value;
+        if(joinfrm.email3.value!=="선택하세요"){
+            joinfrm.email2.value=joinfrm.email3.value;
+        }
     }
-}
+});
 
 joinbtn?.addEventListener("click", () =>{
 if(joinfrm.userid.value == '') alert('아이디를 입력해주세요!');
@@ -136,7 +157,7 @@ else if(joinfrm.passwd.value !== reppsswd.value) alert('비밀번호가 일치�
 else if(joinfrm.zip1.value == '' || zip2.value == '') alert('우편번호를 확인해주세요!');
 else if(joinfrm.addr1.value == '' || addr2.value == '') alert('주소를 확인해주세요!');
 else if(joinfrm.email1.value == '' || email2.value == '') alert('이메일을 확인해주세요!');
-else if(joinfrm.recaptcha.value == '') alert('자동가입방지를 확인해주세요!');
+else if(joinfrm.g-recaptcha.value == '') alert('자동가입방지를 확인해주세요!');
 else {
     location.href="/join/joinok";
 }
