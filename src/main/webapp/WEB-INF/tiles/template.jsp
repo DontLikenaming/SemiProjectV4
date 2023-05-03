@@ -33,27 +33,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form name="loginfrm">
-
+                    <form name="loginfrm" id="loginfrm">
                         <div class="row text-danger mb-2">
                             <div class="col-1"></div>
-                            <label for="loginid" class="form-label col-3 text-end mt-1">아이디</label>
+                            <label for="userid" class="form-label col-3 text-end mt-1">아이디</label>
                             <div class="col-5">
-                                <input type="text" class="form-control border-danger" id="loginid" placeholder="아이디">
+                                <input type="text" class="form-control border-danger" name="userid" id="userid" placeholder="아이디">
                             </div>
                         </div>
-
                         <div class="row text-danger mb-2">
                             <div class="col-1"></div>
-                            <label for="loginpwd" class="form-label col-3 text-end mt-1">비밀번호</label>
+                            <label for="passwd" class="form-label col-3 text-end mt-1">비밀번호</label>
                             <div class="col-5">
-                                <input type="password" class="form-control border-danger" id="loginpwd" placeholder="비밀번호">
+                                <input type="password" class="form-control border-danger" name="passwd" id="passwd" placeholder="비밀번호">
                             </div>
                             <div class="col-3"></div>
                         </div>
-
                         <div class="row">
-
                             <div class="col-4"></div>
                             <div class="col-5">
                                 <div class="form-check">
@@ -62,12 +58,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-danger">로그인</button>
-                    <button type="button" class="btn btn-warning">아이디/비밀번호 찾기</button>
+                    <button type="button" class="btn btn-danger" id="mdloginbtn">로그인</button>
+                    <button type="button" class="btn btn-warning" id="mduidpwbtn">아이디/비밀번호 찾기</button>
                 </div>
             </div>
         </div>

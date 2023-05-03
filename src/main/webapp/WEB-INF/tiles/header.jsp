@@ -6,11 +6,21 @@
         <h1 id="logo"><strong>Lorem Ipsum</strong></h1>
     </div>
     <div class="col text-end mt-2">
+<%--        pageScope - 일회용 변수
+        requsetScop - form, jsp에서만 변수
+        sessionScope - 여러 페이지에서 사용 가능한 변수
+        applicationScope - 여러 프로그램에서 사용 가능한 변수--%>
         <c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" />
         <c:if test="${!fn:startsWith(path, '/join')}">
-            <button type="button" class="btn btn-danger"
-                    data-bs-target="#loginModalfrm" data-bs-toggle="modal">로그인</button>
-            <button type="button" class="btn btn-primary">회원가입</button>
+            <c:if test="${empty sessionScope.UID}">
+                <button type="button" class="btn btn-danger"
+                        data-bs-target="#loginModalfrm" data-bs-toggle="modal">로그인</button>
+                <button type="button" class="btn btn-primary">회원가입</button>
+            </c:if>
+            <c:if test="${!empty sessionScope.UID}">
+                <button type="button" class="btn btn-dark" id="lgoutbtn">로그아웃</button>
+                <button type="button" class="btn btn-success">회원정보</button>
+            </c:if>
         </c:if>
     </div>
 </header>
