@@ -1,3 +1,4 @@
+import dontlikenaming.spring4mvc.semiprojectv4.model.Member;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +24,36 @@ public class JoinDAOTest {
 
     @Test
     public void checkUserid() {
-        String uid = "아이디";
+        String uid = "qwerty";
         assertEquals(1, (int)sqlSession.selectOne("join.selectOneUid", uid));
+    }
+
+    @Test
+    public void newMember() {
+        Member m = new Member();
+        m.setName("이름");
+        m.setPnum1("010");
+        m.setPnum2("123");
+        m.setPnum3("4567");
+        m.setUserid("qwerty");
+        m.setPasswd("asdfzxcv");
+        m.setZipcode("012-345");
+        m.setAddr1("우리");
+        m.setAddr2("집");
+        m.setEmail("qazwsx@gmail.com");
+
+        assertEquals(1, (int)sqlSession.insert("join.insertMember", m));
+    }
+
+    @Test
+    public void loginMember() {
+        Member m = new Member();
+        // m.setUserid("qwerty");
+        // m.setPasswd("asdfzxcv");
+        //assertEquals(1, (int)sqlSession.selectOne("member.selectLogin", m));
+
+        m.setUserid("1");
+        m.setPasswd("2");
+        assertEquals(0, (int)sqlSession.selectOne("member.selectLogin", m));
     }
 }
