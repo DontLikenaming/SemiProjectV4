@@ -15,7 +15,7 @@
             <c:if test="${empty sessionScope.UID}">
                 <button type="button" class="btn btn-danger"
                         data-bs-target="#loginModalfrm" data-bs-toggle="modal">로그인</button>
-                <button type="button" class="btn btn-primary">회원가입</button>
+                <button type="button" class="btn btn-primary" id="joinpgbtn">회원가입</button>
             </c:if>
             <c:if test="${!empty sessionScope.UID}">
                 <button type="button" class="btn btn-dark" id="lgoutbtn">로그아웃</button>

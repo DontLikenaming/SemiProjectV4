@@ -8,6 +8,7 @@ logo.addEventListener("click", function (){
 const loginfrm = document.forms.loginfrm;
 const mdloginbtn = document.querySelector("#mdloginbtn");
 const lgoutbtn = document.querySelector("#lgoutbtn");
+const joinpgbtn = document.querySelector("#joinpgbtn");
 
 mdloginbtn?.addEventListener("click", ()=>{
     if(loginfrm.userid.value === '') alert('아이디를 입력해주세요!');
@@ -21,4 +22,8 @@ mdloginbtn?.addEventListener("click", ()=>{
 
 lgoutbtn?.addEventListener("click", ()=>{
     location.href="/logout";
+})
+
+joinpgbtn?.addEventListener("click", ()=>{
+    location.href="/join/agree";
 })
