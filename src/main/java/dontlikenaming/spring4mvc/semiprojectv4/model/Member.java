@@ -12,7 +12,6 @@ public class Member {
     private String addr1;
     private String addr2;
     private String email;
-    private String phone;
     private String regdate;
 
     public Member() {}
@@ -103,14 +102,6 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getRegdate() {

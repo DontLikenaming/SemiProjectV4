@@ -19,7 +19,7 @@ public class JoinDAOImpl implements JoinDAO{
 
     @Override
     public int insertMember(Member m) {
-        return 0;
+        return sqlSession.insert("join.insertMember", m);
     }
 
     @Override

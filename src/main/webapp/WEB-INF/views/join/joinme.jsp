@@ -109,26 +109,26 @@
 
                 <div class="row col-11 offset-1 mt-3 mb-3 align-items-center">
                     <label class="col-2 form-label text-danger text-end"
-                           for="tel1">전화번호</label>
+                           for="pnum1">전화번호</label>
                     <div class="col-2">
-                        <input type="text" name="tel1" id="tel1"
+                        <input type="text" name="pnum1" id="pnum1"
                                class="form-control border-danger" value="${mb.pnum1}" readonly>
                     </div>
                     <div class="col-2">
-                        <input type="text" name="tel2" id="tel2"
+                        <input type="text" name="pnum2" id="pnum2"
                                class="form-control border-danger" value="${mb.pnum2}" readonly> </div>
                     <div class="col-2">
-                        <input type="text" name="tel3" id="tel3"
+                        <input type="text" name="pnum3" id="pnum3"
                                class="form-control border-danger" value="${mb.pnum3}" readonly> </div>
                 </div>
 
                 <div class="row col-11 offset-1  align-items-center">
                     <label class="col-2 form-label text-danger text-end mb-5"
-                           for="g-recaptcha">자동가입방지</label>
+                           for="grecaptcha">자동가입방지</label>
                     <div class="col-3">
                         <div class="g-recaptcha"
                              data-sitekey="6LdD4OskAAAAAH6Uazf4s8YBShdvsgMUbU5KkmDK"></div>
-                        <input type="hidden" name="g-recaptcha" id="g-recaptcha">
+                        <input type="hidden" name="grecaptcha" id="grecaptcha">
                     </div>
                 </div>
             </div>

@@ -10,6 +10,10 @@
     <select id="selectOneUid" statementType="PREPARED"
             parameterType="String"
             resultType="Integer">
-        select count(userid) cnt from member where userid = #{uid}
+        select count(userid) cnt from member2 where userid = #{uid}
     </select>
+    <insert id="insertMember" statementType="PREPARED"
+            parameterType="dontlikenaming.spring4mvc.semiprojectv4.model.Member">
+        insert into member2 (name, pnum1, pnum2, pnum3, userid, passwd, zipcode, addr1, addr2, email) values (#{name}, #{pnum1}, #{pnum2}, #{pnum3}, #{userid}, #{passwd}, #{zipcode}, #{addr1}, #{addr2}, #{email})
+    </insert>
 </mapper>
