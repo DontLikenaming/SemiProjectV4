@@ -76,9 +76,12 @@ const modal = new bootstrap.Modal(zipmodal, {});
 
 const styleCheckuid = (chkuid) => {
     let msg = "사용 불가능한 아이디입니다!";
+    uidmsg.style.color = "red";
+    joinfrm.checkuid.value = 'no';
+
     if(parseInt(chkuid)===0){
-        uidmsg.style.color = "red";
         uidmsg.innerText = msg;
+        joinfrm.checkuid.value = 'yes';
     } else if(parseInt(chkuid)===1){
         uidmsg.style.color = "blue";
         uidmsg.innerText = "사용 가능한 아이디입니다!";
@@ -87,6 +90,7 @@ const styleCheckuid = (chkuid) => {
 };
 userid?.addEventListener("blur", ()=>{
     let checkid = new RegExp("(?=[a-z0-9_]{6,16})(?=^((?![^a-z0-9_]).)*$)");
+    joinfrm.checkuid.value = 'no';
 
     if(userid.value==='') {
         uidmsg.style.color = null;
@@ -103,6 +107,7 @@ userid?.addEventListener("blur", ()=>{
 
 passwd?.addEventListener("blur", ()=>{
     let checkid = new RegExp("(?=[a-z0-9_]{6,16})(?=^((?![^a-z0-9_]).)*$)");
+    joinfrm.checkpwd.value = 'no';
 
     if(passwd.value==='') {
         pwdmsg.style.color = null;
@@ -113,6 +118,7 @@ passwd?.addEventListener("blur", ()=>{
     } else {
         pwdmsg.style.color = "blue";
         pwdmsg.innerText = "사용 가능한 비밀번호입니다!";
+        joinfrm.checkpwd.value = 'yes';
     }
 })
 
@@ -191,10 +197,24 @@ addrclose?.addEventListener("click", () =>{
     if(addr !== ''){
         let zipsplt = addr.split(' ')[0];
         let zipsplt2 = `${addr.split(' ')[1]} ${addr.split(' ')[2]} ${addr.split(' ')[3]}`;
+        let zipsplt3 = '';
+
+        let ri = addr.split(' ')[4];
+        let bunji = addr.split(' ')[5];
+
+        if((ri!==undefined)&&(bunji!==undefined)) {
+            zipsplt3 = `${addr.split(' ')[4]} ${addr.split(' ')[5]}`;
+        } else if((ri!==undefined)&&(bunji===undefined)){
+            zipsplt3 = `${addr.split(' ')[4]}`;
+        } else if((ri===undefined)&&(bunji!==undefined)){
+            zipsplt3 = `${addr.split(' ')[5]}`;
+        }
 
         joinfrm.zip1.value = zipsplt.split('-')[0];
         joinfrm.zip2.value = zipsplt.split('-')[1];
         joinfrm.addr1.value = zipsplt2;
+        joinfrm.addr2.value = zipsplt3;
+        joinfrm.addr2.focus();
     } else {
         alert('주소를 입력하세요!');
     }
@@ -216,7 +236,9 @@ email3?.addEventListener("click",() => {
 
 joinbtn?.addEventListener("click", () =>{
 if(joinfrm.userid.value == '') alert('아이디를 입력해주세요!');
+else if(joinfrm.checkuid.value !== "yes") alert('다른 아이디를 사용해주세요!');
 else if(joinfrm.passwd.value == '') alert('비밀번호를 입력해주세요!');
+else if(joinfrm.checkpwd.value !== "yes") alert('다른 아이디를 사용해주세요!');
 else if(joinfrm.reppsswd.value == '') alert('비밀번호 확인란을 입력해주세요!');
 else if(joinfrm.passwd.value !== reppsswd.value) alert('비밀번호가 일치하지 않습니다!');
 else if(joinfrm.zip1.value == '' || zip2.value == '') alert('우편번호를 확인해주세요!');
@@ -224,6 +246,11 @@ else if(joinfrm.addr1.value == '' || addr2.value == '') alert('주소를 확인�
 else if(joinfrm.email1.value == '' || email2.value == '') alert('이메일을 확인해주세요!');
 else if(grecaptcha.getResponse() == '') alert('자동가입방지를 확인해주세요!');
 else {
+    joinfrm.zipcode.value = joinfrm.zip1.value + "-" + joinfrm.zip2.value;
+    joinfrm.email.value = joinfrm.email1.value + "@" + joinfrm.email2.value;
+    joinfrm.phone.value = joinfrm.tel1.value + "-" + joinfrm.tel2.value
+                          + "-" + joinfrm.tel3.value;
+
     joinfrm.method='post';
     joinfrm.action='/join/joinok';
     joinfrm.submit();
