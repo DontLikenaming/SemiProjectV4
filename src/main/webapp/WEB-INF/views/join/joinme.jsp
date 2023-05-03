@@ -1,6 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="main">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <div class="mt-4">
         <i class="fa-solid fa-users fa-2xl"></i> 회원가입
         <hr>
@@ -55,23 +56,22 @@
                     <div class="col-3">
                         <input type="password" class="form-control border-danger" id="reppsswd" name="reppsswd">
                     </div>
-                    <span class="col-auto form-text">
+                    <span class="col-auto form-text" id="repwdmsg">
                             이전 항목에서 입력했던 비밀번호를 한번 더 입력하세요.
                         </span>
                 </div>
                 <div class="row col-11 offset-1 mt-3 align-items-center">
                     <label class="col-2 form-label text-danger text-end mt-1" for="zip1">우편번호</label>
-                    <div class="col-1">
+                    <div class="col-2">
                         <input type="text" class="form-control border-danger bg-light"
                                id="zip1" name="zip1" readonly>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         <input type="text" class="form-control border-danger bg-light"
                                id="zip2" name="zip2" readonly>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="btn btn-dark"
-                                data-bs-toggle="modal" data-bs-target="#ziqmodal">
+                        <button type="button" class="btn btn-dark" id="zipmdbtn">
                             <i class="fas fa-question-circle"></i> 우편번호 찾기</button>
                     </div>
                 </div>
@@ -97,10 +97,10 @@
                                    class="form-control border-danger bg-light" readonly>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <select class="form-select border-danger" id="email3">
                             <option>선택하세요</option>
-                            <option>직접입력하기</option>
+                            <option>직접 입력하기</option>
                             <option>naver.com</option>
                             <option>gmail.com</option>
                             <option>hotmail.com</option>
@@ -111,7 +111,7 @@
                     <label class="col-2 form-label text-danger text-end"
                            for="tel1">전화번호</label>
                     <div class="col-2">
-                        <input type="text" name="tel2" id="tel1"
+                        <input type="text" name="tel1" id="tel1"
                                class="form-control border-danger" value="${mb.pnum1}" readonly>
                     </div>
                     <div class="col-2">
@@ -145,11 +145,13 @@
             <input type="hidden" name="phone" id="phone">
             <input type="hidden" name="zipcode" id="zipcode">
             <input type="hidden" name="email" id="email">
+            <input type="hidden" name="checkuid" id="checkuid">
+            <input type="hidden" name="checkuid" id="checkpwd">
         </form>
     </div>
 
     <!-- 우편번호 폼 모달 -->
-    <div class="modal fade" id="ziqmodal" role="dialog" data-bs-backdrop="static"
+    <div class="modal fade" id="zipmodal" role="dialog" data-bs-backdrop="static"
          data-bs-keyboard="false">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -181,26 +183,7 @@
                         <div>
                             <div class="col-8 offset-2 mt-3">
                                 <select class="form-select" id="addrlist" name="addrlist" size="10">
-                                    <option>123-456 서울 구로구 신도림동</option>
-                                    <option>123-456 서울 구로구 구로동</option>
-                                    <option>123-456 서울 구로구 가리봉동</option>
-                                    <option>123-456 서울 구로구 고척동</option>
-                                    <option>123-456 서울 구로구 개봉동</option>
-                                    <option>123-456 서울 구로구 오류동</option>
-                                    <option>123-456 서울 구로구 천왕동</option>
-                                    <option>123-456 서울 구로구 항동</option>
-                                    <option>123-456 서울 구로구 궁동</option>
-                                    <option>123-456 서울 구로구 온수동</option>
-                                    <option>789-012 서울 금천구 가산동</option>
-                                    <option>789-012 서울 금천구 독산1동</option>
-                                    <option>789-012 서울 금천구 독산2동</option>
-                                    <option>789-012 서울 금천구 독산3동</option>
-                                    <option>789-012 서울 금천구 독산4동</option>
-                                    <option>789-012 서울 금천구 시흥1동</option>
-                                    <option>789-012 서울 금천구 시흥2동</option>
-                                    <option>789-012 서울 금천구 시흥3동</option>
-                                    <option>789-012 서울 금천구 시흥4동</option>
-                                    <option>789-012 서울 금천구 시흥15동</option>
+
                                 </select>
                             </div>
                         </div>
@@ -208,7 +191,7 @@
                 </div>
                 <div class="modal-footer justify-content-end">
                     <hr>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="addrclose">
                         <i class="fas fa-check-square"></i> 선택하고 닫기</button>
                 </div>
             </div>
@@ -216,5 +199,5 @@
     </div>
 
 
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+
 </div>
