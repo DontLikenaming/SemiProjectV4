@@ -59,8 +59,10 @@ cancelbtn2?.addEventListener("click", () => {
 const joinfrm = document.forms.joinfrm;
 const userid = document.querySelector("#userid");
 const passwd = document.querySelector("#passwd");
+const reppsswd = document.querySelector("#reppsswd");
 const uidmsg = document.querySelector("#uidmsg");
 const pwdmsg = document.querySelector("#pwdmsg");
+const repwdmsg = document.querySelector("#repwdmsg");
 const zipmdbtn = document.querySelector("#zipmdbtn");
 const zipmodal = document.querySelector("#zipmodal");
 const dong = document.querySelector("#dong");
@@ -71,16 +73,60 @@ const email3 = document.querySelector("#email3");
 const joinbtn = document.querySelector("#joinbtn");
 const modal = new bootstrap.Modal(zipmodal, {});
 
-userid?.addEventListener("blur",()=>{
-    let checkid = "/[0-9a-z]/"
+
+const styleCheckuid = (chkuid) => {
+    let msg = "사용 불가능한 아이디입니다!";
+    if(parseInt(chkuid)===0){
+        uidmsg.style.color = "red";
+        uidmsg.innerText = msg;
+    } else if(parseInt(chkuid)===1){
+        uidmsg.style.color = "blue";
+        uidmsg.innerText = "사용 가능한 아이디입니다!";
+    }
+
+};
+userid?.addEventListener("blur", ()=>{
+    let checkid = new RegExp("(?=[a-z0-9_]{6,16})(?=^((?![^a-z0-9_]).)*$)");
 
     if(userid.value==='') {
-        alert("유저 아이디를 입력하세요!");
-        return;
+        uidmsg.style.color = null;
+        uidmsg.innerText = "6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.";
+    } else if(!checkid.test(userid.value)){
+        uidmsg.style.color = "red";
+        uidmsg.innerText = "형식에 맞지 않습니다!";
+    } else {
+        const url = '/join/checkuid?uid=' + userid.value;
+        fetch(url).then(response => response.text())
+            .then(text => styleCheckuid(text));
     }
-    const url = '/join/checkuid?uid=' + userid.value;
-    fetch(url).then(response => response.text())
-        .then(text => alert(text));
+})
+
+passwd?.addEventListener("blur", ()=>{
+    let checkid = new RegExp("(?=[a-z0-9_]{6,16})(?=^((?![^a-z0-9_]).)*$)");
+
+    if(passwd.value==='') {
+        pwdmsg.style.color = null;
+        pwdmsg.innerText = "6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.";
+    } else if(!checkid.test(passwd.value)){
+        pwdmsg.style.color = "red";
+        pwdmsg.innerText = "형식에 맞지 않습니다!";
+    } else {
+        pwdmsg.style.color = "blue";
+        pwdmsg.innerText = "사용 가능한 비밀번호입니다!";
+    }
+})
+
+reppsswd?.addEventListener("blur", ()=>{
+    if(reppsswd.value===''){
+        repwdmsg.style.color = null;
+        repwdmsg.innerText = "이전 항목에서 입력했던 비밀번호를 한번 더 입력해주세요.";
+    } else if(reppsswd.value!==passwd.value){
+        repwdmsg.style.color = "red";
+        repwdmsg.innerText = "비밀번호가 일치하지 않습니다!";
+    } else {
+        repwdmsg.style.color = "blue";
+        repwdmsg.innerText = "비밀번호가 일치합니다!";
+    }
 })
 
 zipmdbtn?.addEventListener("click",()=>{
