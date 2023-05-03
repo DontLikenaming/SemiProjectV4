@@ -1,13 +1,17 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <header class="row">
     <div class="col">
         <h1 id="logo"><strong>Lorem Ipsum</strong></h1>
     </div>
     <div class="col text-end mt-2">
-        <button type="button" class="btn btn-danger"
-                data-bs-target="#loginModalfrm" data-bs-toggle="modal">로그인</button>
-        <button type="button" class="btn btn-primary">회원가입</button>
+        <c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" />
+        <c:if test="${!fn:startsWith(path, '/join')}">
+            <button type="button" class="btn btn-danger"
+                    data-bs-target="#loginModalfrm" data-bs-toggle="modal">로그인</button>
+            <button type="button" class="btn btn-primary">회원가입</button>
+        </c:if>
     </div>
 </header>
 <nav class="navbar navbar-expand bg-light rounded-3 border border-dark">
