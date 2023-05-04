@@ -2,3 +2,7 @@
 #logo { width : 255px; }
 #logo:hover { cursor: pointer; }
 .breadcrumb-item::before { margin-top: 5px; }
+.tbborder { border-top: 3px solid black; border-bottom: 3px solid black; }
+.thbg { background: #dff0d8; }
+.thbg tr { border-bottom: 1px solid silver; }
+tbody tr { border-bottom: 1px solid silver; }

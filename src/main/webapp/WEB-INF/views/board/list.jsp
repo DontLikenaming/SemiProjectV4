@@ -7,13 +7,226 @@
     <hr>
 </div>
 <div class="row">
-    <div class="offset-2 col-8 text-end">
+    <div class="offset-2 col-8 text-end mt-5 mb-3">
         <button type="button" class="btn btn-light"><i class="fa fa-plus-circle"> 새 글 쓰기</i></button>
     </div>
 </div>
 <div class="row">
-    <div class="offset-2 col-8 text-end">
-
+    <div class="offset-2 col-8">
+        <table class="table table-striped tbborder">
+            <thead class="thbg">
+                <tr>
+                    <th style="width: 7%">번호</th>
+                    <th>제목</th>
+                    <th style="width: 13%">작성자</th>
+                    <th style="width: 13%">작성일</th>
+                    <th style="width: 7%">추천</th>
+                    <th style="width: 7%">조회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>공지</th>
+                    <th><span class="badge text-bg-danger">HOT</span> 석가탄신일·성탄절 대체공휴일 확정..</th>
+                    <th>운영자</th>
+                    <th>2023-05-04</th>
+                    <th>567</th>
+                    <th>1345</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>대충 제목</td>
+                    <td>대충 작성자</td>
+                    <td>2023-05-04</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <div class="row">
@@ -39,4 +252,4 @@
 
 
 
-<script src="/assets/js/board.js"></script>
+<%--<script src="/assets/js/board.js"></script>--%>
