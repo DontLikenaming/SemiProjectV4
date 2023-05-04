@@ -1,6 +1,25 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%--
+    // 게시판 리스트 처리 - 페이징
+    // 1. 전체 게시물 수 처리 (bdcnt : 526)
+    // 2. 페이지당 보여줄 게시물 수 지정 (=perPage : 10)
+    // 3. 총 페이지 수 계산 (=> 52 + 1)
+    // 4. 현재 페이지 번호 (cp, )
+    // ex) list.do?cp=1 : 526 ~ 517
+    // ex) list.do?cp=2 : 516 ~ 507
+    // ex) list.do?cp=3 : 506 ~ 497
+    // ...
+    // ex) list.do?cp=n : x ~ x - 9
+    //
+    // x를 구하는 식 : (x - 1) * 10
+    // ㄴ 1페이지는 0부터 9까지 가져옴
+    //    2페이지는 10부터 19까지 가져옴
+    //    3페이지는 20부터 29까지 가져옴
+    //    ...
+--%>
+
 
 <div class="mt-4">
     <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판</i>

@@ -15,10 +15,11 @@ public class BoardController {
     @Autowired private BoardService bsrv;
 
     @GetMapping(value = "/list")
-    public ModelAndView list(){
+    public ModelAndView list(Integer page){
+        if((page==null)||(page<=0)){page = 1;}
         ModelAndView mv = new ModelAndView();
         mv.setViewName("board/list.tiles");
-        mv.addObject("bdlist", bsrv.readBoard());
+        mv.addObject("bdlist", bsrv.readBoard(page));
 
         return mv;
     }

@@ -12,8 +12,9 @@ public class BoardServiceImpl implements BoardService{
     @Autowired private BoardDAO bdao;
 
     @Override
-    public List<Board> readBoard() {
-        return bdao.selectBoard();
+    public List<Board> readBoard(int cpage) {
+        int stdno = (cpage-1)*10;
+        return bdao.selectBoard(stdno);
     }
 
     @Override

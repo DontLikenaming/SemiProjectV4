@@ -19,4 +19,17 @@ public class BoardDAOTest {
     public void selectBoard() {
         assertNotNull(sqlSession.selectList("board.selectBoard"));
     }
+
+    @Test
+    public void writeBoard() {
+        Board b = new Board();
+        b.setTitle("Test");
+        b.setUserid("TestId");
+        b.setContent("123");
+
+        System.out.println(b.getTitle());
+        System.out.println(b.getUserid());
+        System.out.println(b.getContent());
+        assertEquals(1, (int)sqlSession.insert("board.insertBoard", b));
+    }
 }

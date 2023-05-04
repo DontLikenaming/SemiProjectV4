@@ -12,8 +12,8 @@ public class BoardDAOImpl implements BoardDAO{
     @Autowired SqlSession sqlSession;
 
     @Override
-    public List<Board> selectBoard() {
-        return sqlSession.selectList("board.selectBoard");
+    public List<Board> selectBoard(int stdno) {
+        return sqlSession.selectList("board.selectBoard", stdno);
     }
 
     @Override
