@@ -18,6 +18,18 @@
     //    2페이지는 10부터 19까지 가져옴
     //    3페이지는 20부터 29까지 가져옴
     //    ...
+
+    // 게시판 리스트 처리 - 네비게이션
+    // 현재 페이지에 따라서 보여줄 페이지 블럭을 결정
+    // ex) cp = 1 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 3 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 9 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 11 : 이전 11 12 13 14 15 16 17 18 19 20 다음
+    // ex) cp = 15 : 이전 11 12 13 14 15 16 17 18 19 20 다음
+    // ex) cp = 23 : 이전 21 22 23 24 25 26 27 28 29 30 다음
+    // ex) cp = 52: 이전 51 52 53 54 55
+    // startPage = ((cp - 1) / 10) * 10 + 1
+    // endPage = startPage + 10 - 1
 --%>
 <c:set var="pglink" value="/board/list?page=" />
 
@@ -87,12 +99,12 @@
         <nav>
             <ul class="pagination justify-content-center">
                 <c:if test="${page/10 gt 1}">
-                    <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}${stpg-10}">이전</a></li>
                 </c:if>
                 <c:if test="${page/10 le 1}">
                     <li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
                 </c:if>
-                <c:forEach var="i" begin="1" end="10">
+                <c:forEach var="i" begin="${stpg}" end="${stpg+9}">
                     <c:if test="${i ne page}">
                         <li class="page-item"><a class="page-link" href="${pglink}${i}">${i}</a></li>
                     </c:if>
@@ -104,7 +116,7 @@
                 <li class="page-item"><a class="page-link" href="${pglink}${page+1}">다음</a></li>
                 </c:if>
                 <c:if test="${page%10 ne 0}">
-                    <li class="page-item"><a class="page-link" href="${pglink}${(page-(page%10))+11}">다음</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}${stpg+10}">다음</a></li>
                 </c:if>
             </ul>
         </nav>

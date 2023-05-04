@@ -21,6 +21,7 @@ public class BoardController {
         mv.setViewName("board/list.tiles");
         mv.addObject("bdlist", bsrv.readBoard(page));
         mv.addObject("page", page);
+        mv.addObject("stpg", (page-(page%10)+1));
 
         return mv;
     }
