@@ -10,9 +10,9 @@
     <div class="row offset-2 col-6">
         <div class="col-3">
             <select class="form-select" id="findtype">
-                <option value="subject">제목</option>
-                <option value="contents">내용</option>
-                <option value="sbjcont">제목+내용</option>
+                <option value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="titcont">제목+내용</option>
                 <option value="userid">작성자</option>
             </select>
         </div>
@@ -49,198 +49,16 @@
                     <th>567</th>
                     <th>1345</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>적당한 제목</td>
-                    <td>그냥 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
-                    <td>2023-05-04</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
+                <c:forEach var="bd" items="${bdlist}">
+                    <tr>
+                        <td>${bd.bno}</td>
+                        <td>${bd.title}</td>
+                        <td>${bd.userid}</td>
+                        <td>${fn:substring(bd.regdate, 0, 10)}</td>
+                        <td>${bd.thumbs}</td>
+                        <td>${bd.views}</td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
