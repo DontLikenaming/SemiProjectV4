@@ -6,9 +6,25 @@
     <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판</i>
     <hr>
 </div>
-<div class="row">
-    <div class="offset-2 col-8 text-end mt-5 mb-3">
-        <button type="button" class="btn btn-light"><i class="fa fa-plus-circle"> 새 글 쓰기</i></button>
+<div class="row mt-5 mb-3">
+    <div class="row offset-2 col-6">
+        <div class="col-3">
+            <select class="form-select" id="findtype">
+                <option value="subject">제목</option>
+                <option value="contents">내용</option>
+                <option value="sbjcont">제목+내용</option>
+                <option value="userid">작성자</option>
+            </select>
+        </div>
+        <div class="col-6">
+            <input type="text" class="form-control" id="findkey">
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-light" id="findbtn"><i class="fa-solid fa-magnifying-glass"> 검색하기</i></button>
+        </div>
+    </div>
+    <div class="col-2 text-end">
+        <button type="button" class="btn btn-light"><i class="fa-solid fa-file-pen"> 새 글 쓰기</i></button>
     </div>
 </div>
 <div class="row">
@@ -99,8 +115,8 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>대충 제목</td>
-                    <td>대충 작성자</td>
+                    <td>적당한 제목</td>
+                    <td>그냥 작성자</td>
                     <td>2023-05-04</td>
                     <td>1</td>
                     <td>1</td>
