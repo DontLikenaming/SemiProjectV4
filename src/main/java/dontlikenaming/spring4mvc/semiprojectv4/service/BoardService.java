@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface BoardService {
     List<Board> readBoard(int cpage);
+    int countBoard();
     boolean boardWrite(Board b);
 }

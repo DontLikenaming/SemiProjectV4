@@ -99,24 +99,33 @@
         <nav>
             <ul class="pagination justify-content-center">
                 <c:if test="${page/10 gt 1}">
+                    <li class="page-item"><a class="page-link" href="${pglink}1">처음</a></li>
                     <li class="page-item"><a class="page-link" href="${pglink}${stpg-10}">이전</a></li>
                 </c:if>
                 <c:if test="${page/10 le 1}">
-                    <li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
+                    <li class="page-item disabled"><a class="page-link">이전</a></li>
                 </c:if>
                 <c:forEach var="i" begin="${stpg}" end="${stpg+9}">
-                    <c:if test="${i ne page}">
-                        <li class="page-item"><a class="page-link" href="${pglink}${i}">${i}</a></li>
-                    </c:if>
-                    <c:if test="${i eq page}">
-                        <li class="page-item disabled"><a class="page-link" href="${pglink}${i}">${i}</a></li>
+                    <c:if test="${i le cntpg}">
+                        <c:if test="${i ne page}">
+                            <li class="page-item"><a class="page-link" href="${pglink}${i}">${i}</a></li>
+                        </c:if>
+                        <c:if test="${i eq page}">
+                            <li class="page-item disabled"><a class="page-link" href="${pglink}${i}">${i}</a></li>
+                        </c:if>
                     </c:if>
                 </c:forEach>
-                <c:if test="${page%10 eq 0}">
-                <li class="page-item"><a class="page-link" href="${pglink}${page+1}">다음</a></li>
+                <c:if test="${(stpg-(stpg%10)) lt (cntpg-(cntpg%10))}">
+                    <c:if test="${page%10 eq 0}">
+                        <li class="page-item"><a class="page-link" href="${pglink}${page+1}">다음</a></li>
+                    </c:if>
+                    <c:if test="${page%10 ne 0}">
+                        <li class="page-item"><a class="page-link" href="${pglink}${stpg+10}">다음</a></li>
+                    </c:if>
+                    <li class="page-item"><a class="page-link" href="${pglink}${cntpg}">끝</a></li>
                 </c:if>
-                <c:if test="${page%10 ne 0}">
-                    <li class="page-item"><a class="page-link" href="${pglink}${stpg+10}">다음</a></li>
+                <c:if test="${(stpg-(stpg%10)) ge (cntpg-(cntpg%10))}">
+                    <li class="page-item disabled"><a class="page-link">다음</a></li>
                 </c:if>
             </ul>
         </nav>

@@ -7,6 +7,10 @@
             resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         select bno, title, userid, thumbs, views, regdate from board2 order by bno desc limit #{stdno}, 10
     </select>
+    <select id="countBoard" statementType="PREPARED"
+            resultType="Integer">
+        select ceil(count(bno)/10) cnt from board2
+    </select>
     <insert id="insertBoard" statementType="PREPARED"
             parameterType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         insert into board2 (title, userid, content) values (#{title}, #{title}, #{userid}, #{content})

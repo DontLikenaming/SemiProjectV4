@@ -23,4 +23,9 @@ public class BoardServiceImpl implements BoardService{
         if(bdao.insertBoard(b)>0) result = true;
         return result;
     }
+
+    @Override
+    public int countBoard() {
+        return bdao.countBoard();
+    }
 }

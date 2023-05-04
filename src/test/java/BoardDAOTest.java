@@ -32,4 +32,9 @@ public class BoardDAOTest {
         System.out.println(b.getContent());
         assertEquals(1, (int)sqlSession.insert("board.insertBoard", b));
     }
+
+    @Test
+    public void countBoard() {
+        System.out.println(sqlSession.insert("board.countBoard"));
+    }
 }

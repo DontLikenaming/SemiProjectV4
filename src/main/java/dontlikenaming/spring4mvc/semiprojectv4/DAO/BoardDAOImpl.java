@@ -20,4 +20,9 @@ public class BoardDAOImpl implements BoardDAO{
     public int insertBoard(Board b) {
         return sqlSession.insert("board.insertBoard", b);
     }
+
+    @Override
+    public int countBoard() {
+        return sqlSession.selectOne("board.countBoard");
+    }
 }
