@@ -16,14 +16,17 @@ public class BoardController {
 
     @GetMapping(value = "/list")
     public ModelAndView list(Integer page){
+        int cntpg = bsrv.countBoard();
+
         if((page==null)||(page<=0)){page = 1;}
+        else if(page>cntpg){page = cntpg;}
+
         ModelAndView mv = new ModelAndView();
         mv.setViewName("board/list.tiles");
         mv.addObject("bdlist", bsrv.readBoard(page));
         mv.addObject("page", page);
         mv.addObject("stpg", (page-1)/10*10+1);
-
-        mv.addObject("cntpg", bsrv.countBoard());
+        mv.addObject("cntpg", cntpg);
 
         return mv;
     }
