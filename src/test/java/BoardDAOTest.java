@@ -54,9 +54,9 @@ public class BoardDAOTest {
 
     @Test
     public void countFindBoard() {
-        Map<String, String> params = new HashMap<>();
-        params.put("ftype", "content");
-        params.put("fkey", "치킨");
+        Map<String, Object> params = new HashMap<>();
+        params.put("ftype", "title");
+        params.put("fkey", "Test");
 
         // assertNotEquals(0, (int)sqlSession.selectOne("board.countFindBoard", params));
         System.out.println((int)sqlSession.selectOne("board.countFindBoard", params));

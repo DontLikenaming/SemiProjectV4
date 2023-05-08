@@ -46,7 +46,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public int countBoard(String ftype, String fkey) {
-        Map<String, String> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("ftype", ftype);
         params.put("fkey", fkey);
 
