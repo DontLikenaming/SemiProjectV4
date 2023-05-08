@@ -31,9 +31,9 @@
     // startPage = ((cp - 1) / 10) * 10 + 1
     // endPage = startPage + 10 - 1
 --%>
-<c:if test="${empty param.fkey}">
-    <c:set var="pglink" value="/board/list?page=" />
-</c:if>
+
+<c:set var="pglink" value="/board/list?page=" />
+
 <c:if test="${not empty param.fkey}">
     <c:set var="pglink" value="/board/find?ftype=${param.ftype}&fkey=${param.fkey}&page=" />
 </c:if>
