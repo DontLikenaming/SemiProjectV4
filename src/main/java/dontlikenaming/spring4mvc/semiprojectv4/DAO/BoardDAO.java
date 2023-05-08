@@ -8,7 +8,7 @@ import java.util.Map;
 public interface BoardDAO {
     List<Board> selectBoard(int stdno);
     int countBoard();
-    int insertBoard(Board b);
+    int insertBoard(Board bd);
     List<Board> selectBoard(Map<String, Object> params);
     int countBoard(Map<String, Object> params);
 }

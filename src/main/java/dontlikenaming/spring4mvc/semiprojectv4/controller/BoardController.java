@@ -47,12 +47,26 @@ public class BoardController {
         return mv;
     }
 
-    @PostMapping(value = "/writeok")
-    public String writeok(Board b){
-        String view = "error.tiles";
+    @GetMapping(value = "/write")
+    public String write(){
+        return "board/write.tiles";
+    }
 
-        if(bdsrv.boardWrite(b)) view = "redirect:/board/list";
+    @PostMapping(value = "/write")
+    public String writeok(Board bd, String grecaptcha){
+        String view = "error.tiles";
+        grecaptcha = null;
+
+        if(bdsrv.newBoard(bd)){ view = "redirect:/board/list"; }
 
         return view;
+    }
+
+    @GetMapping(value = "/view")
+    public ModelAndView view(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("board/view.tiles");
+
+        return mv;
     }
 }

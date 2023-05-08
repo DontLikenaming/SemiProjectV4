@@ -10,3 +10,15 @@ findbtn?.addEventListener("click",()=>{
 
     location.href = query;
 })
+
+let bdfrm = document.forms.bdfrm;
+let writebtn = document.querySelector("#writebtn");
+writebtn?.addEventListener("click",()=>{
+    if(bdfrm.title.value==''){ alert("제목을 입력해주세요!") }
+    else if(bdfrm.content.value==''){ alert("본문을 입력해주세요!") }
+    else if(grecaptcha.getResponse()==''){ alert("자동 가입 방지를 확인해주세요!") }
+    else {
+        bdfrm.method = "post";
+        bdfrm.submit();
+    }
+})

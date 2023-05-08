@@ -7,14 +7,11 @@
             resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         select bno, title, userid, thumbs, views, regdate from board2 order by bno desc limit #{stdno}, 10
     </select>
+
     <select id="countBoard" statementType="PREPARED"
             resultType="Integer">
         select ceil(count(bno)/10) cnt from board2
     </select>
-    <insert id="insertBoard" statementType="PREPARED"
-            parameterType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
-        insert into board2 (title, userid, content) values (#{title}, #{title}, #{userid}, #{content})
-    </insert>
 
     <!-- 동적 질의문으로 검색 기능 구현 -->
     <!-- 컬럼 이름이나 테이블 이름에는 #{}이 아닌 ${}를 써야함 -->
@@ -31,6 +28,7 @@
         order by bno desc limit #{stdno}, 10
 
     </select>
+
     <select id="countFindBoard" statementType="PREPARED"
             parameterType="map"
             resultType="Integer">
@@ -42,4 +40,9 @@
             title like concat('%',#{fkey},'%') or content like concat('%',#{fkey},'%')
         </if>
     </select>
+
+    <insert id="insertBoard" statementType="PREPARED"
+            parameterType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
+        insert into board2 (title, userid, content) values (#{title}, #{userid}, #{content})
+    </insert>
 </mapper>

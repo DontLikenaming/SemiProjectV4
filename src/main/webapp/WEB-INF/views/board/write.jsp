@@ -62,4 +62,4 @@
     </div>
 </div>
 
-<%--<script src="/assets/js/board.js"></script>--%>
+<script src="/assets/js/board.js"></script>

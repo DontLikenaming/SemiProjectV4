@@ -20,13 +20,6 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public boolean boardWrite(Board b) {
-        boolean result = false;
-        if(bdao.insertBoard(b)>0) result = true;
-        return result;
-    }
-
-    @Override
     public int countBoard() {
         return bdao.countBoard();
     }
@@ -51,5 +44,13 @@ public class BoardServiceImpl implements BoardService{
         params.put("fkey", fkey);
 
         return bdao.countBoard(params);
+    }
+
+    @Override
+    public boolean newBoard(Board bd) {
+        boolean result = false;
+        if(bdao.insertBoard(bd)>0) { result = true; }
+
+        return result;
     }
 }

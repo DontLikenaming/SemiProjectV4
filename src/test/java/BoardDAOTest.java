@@ -26,14 +26,14 @@ public class BoardDAOTest {
     @Test
     public void writeBoard() {
         Board b = new Board();
-        b.setTitle("Test");
+        b.setTitle("Test1");
         b.setUserid("TestId");
-        b.setContent("123");
+        b.setContent("456");
 
         System.out.println(b.getTitle());
         System.out.println(b.getUserid());
         System.out.println(b.getContent());
-        assertEquals(1, (int)sqlSession.insert("board.insertBoard", b));
+        assertEquals(1, sqlSession.insert("board.insertBoard", b));
     }
 
     @Test
