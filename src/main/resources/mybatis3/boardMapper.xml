@@ -22,11 +22,11 @@
             parameterType="map"
             resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         select bno, title, userid, thumbs, views, regdate from board2 where
-        <if test='"${ftype}" != "titcont"'>
-            ${ftype} like concat(#{fkey},'%')
+        <if test="ftype != 'titcont'">
+            ${ftype} like concat('%',#{fkey},'%')
         </if>
-        <if test='"${ftype}" == "titcont"'>
-            title like concat(#{fkey},'%') or content like concat(#{fkey},'%')
+        <if test="ftype == 'titcont'">
+            title like concat('%',#{fkey},'%') or content like concat('%',#{fkey},'%')
         </if>
         order by bno desc limit #{stdno}, 10
 
@@ -35,11 +35,11 @@
             parameterType="map"
             resultType="Integer">
         select ceil(count(bno)/10) cnt from board2 where
-        <if test='"${ftype}" != "titcont"'>
-            ${ftype} like concat(#{fkey},'%')
+        <if test="ftype != 'titcont'">
+            ${ftype} like concat('%',#{fkey},'%')
         </if>
-        <if test='"${ftype}" == "titcont"'>
-            title like concat(#{fkey},'%') or content like concat(#{fkey},'%')
+        <if test="ftype == 'titcont'">
+            title like concat('%',#{fkey},'%') or content like concat('%',#{fkey},'%')
         </if>
     </select>
 </mapper>
