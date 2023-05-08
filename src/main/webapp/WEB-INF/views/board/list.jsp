@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="col-2 text-end">
-        <button type="button" class="btn btn-light"><i class="fa-solid fa-file-pen"> 새 글 쓰기</i></button>
+        <button type="button" class="btn btn-light" id="newbtn"><i class="fa-solid fa-file-pen"> 새 글 쓰기</i></button>
     </div>
 </div>
 <div class="row">

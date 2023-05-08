@@ -11,6 +11,11 @@ findbtn?.addEventListener("click",()=>{
     location.href = query;
 })
 
+let newbtn = document.querySelector("#newbtn");
+newbtn?.addEventListener("click",()=>{
+    location.href = "/board/write";
+})
+
 let bdfrm = document.forms.bdfrm;
 let writebtn = document.querySelector("#writebtn");
 writebtn?.addEventListener("click",()=>{
