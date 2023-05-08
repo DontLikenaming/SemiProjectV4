@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("bdao")
 public class BoardDAOImpl implements BoardDAO{
@@ -24,5 +25,15 @@ public class BoardDAOImpl implements BoardDAO{
     @Override
     public int countBoard() {
         return sqlSession.selectOne("board.countBoard");
+    }
+
+    @Override
+    public List<Board> selectBoard(Map<String, Object> params) {
+        return sqlSession.selectList("board.selectFindBoard", params);
+    }
+
+    @Override
+    public int countBoard(Map<String, String> params) {
+        return sqlSession.selectOne("board.countFindBoard", params);
     }
 }

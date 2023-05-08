@@ -12,22 +12,38 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
-    @Autowired private BoardService bsrv;
+    @Autowired private BoardService bdsrv;
 
     @GetMapping(value = "/list")
     public ModelAndView list(Integer page){
-        int cntpg = bsrv.countBoard();
+        int cntpg = bdsrv.countBoard();
 
         if((page==null)||(page<=0)){page = 1;}
         else if(page>cntpg){page = cntpg;}
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("board/list.tiles");
-        mv.addObject("bdlist", bsrv.readBoard(page));
+        mv.addObject("bdlist", bdsrv.readBoard(page));
         mv.addObject("page", page);
         mv.addObject("stpg", (page-1)/10*10+1);
         mv.addObject("cntpg", cntpg);
 
+        return mv;
+    }
+    
+    @GetMapping(value = "/find")    // 검색 처리
+    public ModelAndView find(Integer page, String ftype, String fkey){
+        ModelAndView mv = new ModelAndView();
+        int cntpg = bdsrv.countBoard(ftype, fkey);
+
+        if((page==null)||(page<=0)){page = 1;}
+        else if(page>cntpg){page = cntpg;}
+
+        mv.addObject("bdlist", bdsrv.readBoard(page, ftype, fkey));
+        mv.addObject("page", page);
+        mv.addObject("stpg", (page-1)/10*10+1);
+        mv.addObject("cntpg", cntpg);
+        mv.setViewName("board/list.tiles");
         return mv;
     }
 
@@ -35,7 +51,7 @@ public class BoardController {
     public String writeok(Board b){
         String view = "error.tiles";
 
-        if(bsrv.boardWrite(b)) view = "redirect:/board/list";
+        if(bdsrv.boardWrite(b)) view = "redirect:/board/list";
 
         return view;
     }

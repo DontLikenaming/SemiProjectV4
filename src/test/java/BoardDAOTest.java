@@ -1,5 +1,4 @@
 import dontlikenaming.spring4mvc.semiprojectv4.model.Board;
-import dontlikenaming.spring4mvc.semiprojectv4.model.Member;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,6 +38,27 @@ public class BoardDAOTest {
 
     @Test
     public void countBoard() {
-        System.out.println(sqlSession.insert("board.countBoard"));
+        assertNotEquals(0, (int)sqlSession.selectOne("board.countBoard"));
+    }
+
+    @Test
+    public void selectFindBoard() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("stdno", 0);
+        params.put("ftype", "title");
+        params.put("fkey", "Test");
+
+        // assertNotNull(sqlSession.selectList("board.selectFindBoard", params));
+        System.out.println(sqlSession.selectList("board.selectFindBoard", params));
+    }
+
+    @Test
+    public void countFindBoard() {
+        Map<String, String> params = new HashMap<>();
+        params.put("ftype", "content");
+        params.put("fkey", "치킨");
+
+        // assertNotEquals(0, (int)sqlSession.selectOne("board.countFindBoard", params));
+        System.out.println((int)sqlSession.selectOne("board.countFindBoard", params));
     }
 }
