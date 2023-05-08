@@ -44,6 +44,7 @@
 </div>
 <div class="row mt-5 mb-3">
     <div class="row offset-2 col-6">
+        <c:if test="${not empty sessionScope.UID}">
         <div class="col-3">
             <select class="form-select" id="findtype">
                 <option value="title">제목</option>
@@ -62,6 +63,10 @@
     <div class="col-2 text-end">
         <button type="button" class="btn btn-light" id="newbtn"><i class="fa-solid fa-file-pen"> 새 글 쓰기</i></button>
     </div>
+    </c:if>
+    <c:if test="${empty sessionScope.UID}">
+        &nbsp;
+    </c:if>
 </div>
 <div class="row">
     <div class="offset-2 col-8">
