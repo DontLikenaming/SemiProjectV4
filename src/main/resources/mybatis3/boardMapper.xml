@@ -47,8 +47,18 @@
     </insert>
 
     <select id="selectOneBoard" statementType="PREPARED"
-            parameterType="String"
+            parameterType="Integer"
             resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         select * from board2 where bno = #{bno}
+    </select>
+
+    <update id="updateViewBoard" statementType="PREPARED"
+            parameterType="Integer">
+        update board2 set views = views + 1 where bno = #{bno}
+    </update>
+
+    <select id="selectAllBoard" statementType="PREPARED"
+            resultType="Integer">
+        select count(bno) cnt from board2
     </select>
 </mapper>

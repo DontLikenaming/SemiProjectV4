@@ -31,7 +31,7 @@
                     <label class="col-3 col-form-label text-danger text-end" for="userid">작성자</label>
                     <div class="col-7">
                         <input type="text" class="form-control border-danger bg-light"
-                               id="userid" name="userid" value="asdf" readonly>
+                               id="userid" name="userid" value="${sessionScope.UID}" readonly>
                     </div>
                 </div>
                 <div class="row mt-2">

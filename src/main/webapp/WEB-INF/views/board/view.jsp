@@ -44,7 +44,7 @@
 
     <div class="row offset-2 mt-5">
         <div class="row col-4">
-
+            <c:if test="${not empty sessionScope.UID and sessionScope.UID eq bd.userid}">
             <button type="button" class="btn btn-warning col-4"
                     id="updbtn" name="updbtn">
                 <i class="fa fa-pencil">수정하기</i>
@@ -54,6 +54,7 @@
                     id="rmvbtn" name="rmvbtn">
                 <i class="fa fa-trash-o">삭제하기</i>
             </button>
+            </c:if>
         </div>
 
         <div class="col-4 text-end">

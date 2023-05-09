@@ -63,7 +63,11 @@ public class BoardController {
     }
 
     @GetMapping(value = "/view")
-    public ModelAndView view(String bno){
+    public ModelAndView view(int bno){
+        int allviews = bdsrv.countAllBoard();
+        if(bno==0){bno = 1;}
+        else if(bno>allviews){bno = allviews;}
+
         ModelAndView mv = new ModelAndView();
         mv.addObject("bd", bdsrv.readOneBoard(bno));
         mv.setViewName("board/view.tiles");

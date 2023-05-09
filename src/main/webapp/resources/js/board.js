@@ -27,3 +27,22 @@ writebtn?.addEventListener("click",()=>{
         bdfrm.submit();
     }
 })
+
+prebtn = document.querySelector("#prebtn");
+nextbtn = document.querySelector("#nextbtn");
+updbtn = document.querySelector("#updbtn");
+rmvbtn = document.querySelector("#rmvbtn");
+listbtn = document.querySelector("#listbtn");
+bno = document.querySelector("#bno");
+prebno = Number(bno.value)-1;
+nextbno = Number(bno.value)+1;
+
+prebtn?.addEventListener("click",()=>{
+    location.href = `/board/view?bno=`+prebno;
+})
+nextbtn?.addEventListener("click",()=>{
+    location.href = `/board/view?bno=`+nextbno;
+})
+listbtn?.addEventListener("click",()=>{
+    location.href = "/board/list?cpg=1";
+})
