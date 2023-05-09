@@ -49,7 +49,6 @@
     <select id="selectOneBoard" statementType="PREPARED"
             parameterType="String"
             resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
-        select title, userid, thumbs, views, content, regdate from board2
-        where bno = #{bno}
+        select * from board2 where bno = #{bno}
     </select>
 </mapper>
