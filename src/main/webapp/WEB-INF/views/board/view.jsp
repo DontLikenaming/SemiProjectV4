@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div class="mt-4">
     <i class="fa-solid fa-book fa-2xl"> 게시글 보기</i>
@@ -24,20 +26,20 @@
     <div class="row offset-2 col-8 mt-3">
 
             <table>
-                <tr><th class="vtit" colspan="2">제목</th></tr>
+                <tr><th class="vtit" colspan="2">${bd.title}</th></tr>
                 <tr class="vinfo">
-                    <td class="text-start">작성자</td>
-                    <td class="text-end">작성 시각 / 추천수 / 조회수</td>
+                    <td class="text-start">${bd.userid}</td>
+                    <td class="text-end">${fn:substring(bd.regdate, 0, 10)} / ${bd.thumbs} / ${bd.views}</td>
                 </tr>
                 <tr>
                     <td class="vcont" colspan="2">
                         <div>
-                            본문
+                            ${bd.content}
                         </div>
                     </td>
                 </tr>
             </table>
-
+            <input type="hidden" id="bno" name="bno" value="${bd.bno}">
     </div>
 
     <div class="row offset-2 mt-5">
