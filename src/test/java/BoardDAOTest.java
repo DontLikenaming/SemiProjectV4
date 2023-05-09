@@ -61,4 +61,14 @@ public class BoardDAOTest {
         // assertNotEquals(0, (int)sqlSession.selectOne("board.countFindBoard", params));
         System.out.println((int)sqlSession.selectOne("board.countFindBoard", params));
     }
+
+    @Test
+    public void selectOneBoard(){
+        assertNotNull(sqlSession.selectOne("board.selectOneBoard", "1"));
+
+        Board bd = new Board();
+        bd = sqlSession.selectOne("board.selectOneBoard", "1812");
+        System.out.println(bd.getTitle());
+
+    }
 }

@@ -45,4 +45,11 @@
             parameterType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
         insert into board2 (title, userid, content) values (#{title}, #{userid}, #{content})
     </insert>
+
+    <select id="selectOneBoard" statementType="PREPARED"
+            parameterType="String"
+            resultType="dontlikenaming.spring4mvc.semiprojectv4.model.Board">
+        select title, userid, thumbs, views, content, regdate from board2
+        where bno = #{bno}
+    </select>
 </mapper>

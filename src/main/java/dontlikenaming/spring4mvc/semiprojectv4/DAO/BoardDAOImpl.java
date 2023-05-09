@@ -36,4 +36,9 @@ public class BoardDAOImpl implements BoardDAO{
     public int insertBoard(Board bd) {
         return sqlSession.insert("board.insertBoard", bd);
     }
+
+    @Override
+    public Board selectOneBoard(String bno) {
+        return sqlSession.selectOne("board.selectOneBoard", bno);
+    }
 }
